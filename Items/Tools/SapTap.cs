@@ -12,7 +12,6 @@ namespace DuckingAround.Items.Tools
 			DisplayName.SetDefault("Sap tap");
 			Tooltip.SetDefault("Tap sap from a tree.");
 		}
-
 		public override void SetDefaults()
 		{
 			item.melee = true;

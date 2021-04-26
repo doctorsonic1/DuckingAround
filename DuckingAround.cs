@@ -262,6 +262,14 @@ namespace DuckingAround
 			recipe.AddRecipe();
 
 			recipe = new ModRecipe(this);
+			recipe.AddRecipeGroup("DuckingAround:IronBars", 5);
+			recipe.AddIngredient(ItemID.Wood, 10);
+			recipe.AddIngredient(ItemID.EmptyBucket);
+			recipe.AddTile(TileID.Anvils);
+			recipe.SetResult(ModContent.ItemType<Items.Tools.SapTap>());
+			recipe.AddRecipe();
+
+			recipe = new ModRecipe(this);
 			recipe.AddIngredient(ItemID.SoulofFlight, 100);
 			recipe.AddIngredient(ItemID.WingsNebula);
 			recipe.AddIngredient(ItemID.WingsSolar);

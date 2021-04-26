@@ -1,0 +1,47 @@
+﻿v0.4
+- Psions only spawn during hardmode
+- Changed color of Platyrhynchium Slime
+- Changed crafting recipes for yoyos
+    - Now require chlorophyte and souls instead of luminite
+    - No longer made with Ancient Manipulator
+
+v0.4.1
+- Fixed ore not generating after killing Moon Lord
+- Added command /spawnore to reset the spawn condition for the ore
+    - Running this command allows ore to be generated if you kill Moon Lord again
+- Added dev weapon that one-hits basically everything
+
+v0.5.0
+- Added Chug Jug
+    - Severely increases enemy spawn ratesw
+    - Drops from Psion (which is now a boss)
+    - Also crafted with an iron pick, wood, deathweed, and a water bottle
+    - Periodically plays "We like Fortnite" sound effect
+         - Can be toggled in mod settings
+- Turned Psion enemy into boss
+    - Removed ore drop
+    - Added treasure bag
+        - Drops duck pet and mount
+    - The AI sucks, so yeah
+
+v0.5.2
+- Psion boss should be multiplayer compatible
+    - Boss AI changes depending on health
+        - Uses pre-existing AI, so should work
+- Added crafting recipe for metal detector  
+    - Takes 50 wire, 10 iron or lead bars, 2 silver or tungsten bars, 2 copper or tin bars, and 2 gold or platinum bars
+    - Crafted at a Tinker's Workbench
+- Lots still unfinished
+
+v0.5.3
+- Changed how the Duck You yo-yo works
+	- Now creates 4 orbiting luminite axes
+	
+v0.5.4
+- Ore now spawns after killing the psion 
+	- Currently doesn't have limit to how many times it can spawn, so could get out of hand
+		- Easy fix, later update
+	- Ore can also spawn on servers now
+- Changed psion size
+	- 3x increase
+	- Item spawn box is too large, will be fixed
