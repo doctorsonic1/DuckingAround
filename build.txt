@@ -1,6 +1,6 @@
 displayName = Ducking Around
 author = options
-version = 0.6.2
+version = 0.6.1
 hideCode = true
 hideResources = true
 includeSource = false
