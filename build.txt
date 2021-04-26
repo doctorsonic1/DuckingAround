@@ -1,0 +1,7 @@
+displayName = Ducking Around
+author = Options
+version = 0.6.0
+hideCode = true
+hideResources = true
+includeSource = false
+buildIgnore = *.csproj, *.user, obj\*, bin\*, .vs\*
