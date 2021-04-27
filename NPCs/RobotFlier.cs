@@ -39,10 +39,6 @@ namespace DuckingAround.NPCs
 				return 0f;
 			}
 		}
-		public override void NPCLoot()
-		{
-			Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Materials.Acid>());
-		}
         public override void FindFrame(int frameHeight)
 		{
 			int frameTime = 4;

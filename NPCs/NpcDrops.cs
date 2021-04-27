@@ -54,6 +54,11 @@ namespace DuckingAround.NPCs
             {
                 Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Materials.Acid>());
             }
+            //machine part drops
+            if (npc.type == ModContent.NPCType<RobotFlier>())
+            {
+                Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Materials.MachineParts>());
+            }
             //enemy egg drops
             else if (npc.type == NPCID.Skeleton && !Main.LocalPlayer.HasItem(mod.ItemType("SkeletonEgg")))
             {

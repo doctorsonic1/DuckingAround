@@ -49,9 +49,19 @@ namespace DuckingAround
 
         public static int[] enemySpawnList =
         {
-            NPCID.ChaosElemental, NPCID.ArmoredSkeleton, NPCID.Corruptor, NPCID.CursedSkull,
-            NPCID.FloatyGross, NPCID.GiantBat, NPCID.Hornet, NPCID.Nymph, NPCID.Pixie,
-            NPCID.Skeleton, NPCID.Unicorn, NPCID.Werewolf, NPCID.Zombie
+            NPCID.ChaosElemental, 
+            NPCID.ArmoredSkeleton, 
+            NPCID.Corruptor, 
+            NPCID.CursedSkull, 
+            NPCID.FloatyGross,
+            NPCID.GiantBat, 
+            NPCID.Hornet, 
+            NPCID.Nymph, 
+            NPCID.Pixie,
+            NPCID.Skeleton,
+            NPCID.Unicorn, 
+            NPCID.Werewolf, 
+            NPCID.Zombie
         };
         public static int EggSpawnMethod()
         {
@@ -67,7 +77,7 @@ namespace DuckingAround
                 {
                     if (npcID == NPCID.Duck)
                     {
-                        EnemyName = "nothing";
+                        EnemyName = "Ducks";
                     }
                     if (item.type == ModContent.ItemType<Items.EnemyEggs.ChaosEgg>())
                     {

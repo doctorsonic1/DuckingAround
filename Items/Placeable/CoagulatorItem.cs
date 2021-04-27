@@ -12,8 +12,8 @@ namespace DuckingAround.Items.Placeable
 
 		public override void SetDefaults()
 		{
-			item.width = 32;
-			item.height = 32;
+			item.width = 24;
+			item.height = 16;
 			item.maxStack = 99;
 			item.useTurn = true;
 			item.autoReuse = true;
