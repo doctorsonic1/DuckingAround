@@ -36,6 +36,14 @@ v0.6.1.5
 	- Now actually drops machine parts
 		- Machine parts float when they are dropped (so they don't fall from space)
 
+v0.6.2
+- Moved a bunch of code around (all crafting recipes in ModItem file now)
+- Fixed some item drops
+- Added Destroyer item
+	- No crafting recipe ATM
+	- Spawns sticky bombs on contact
+	- Definitely not a beyblade
+
 Planned Changes:
 - Several crafting recipes still need changing
 - Robots maybe spawn in pre-generated structure
