@@ -34,14 +34,5 @@ namespace DuckingAround.Items.Weapons.Duckies
 			item.autoReuse = true;
 			item.shoot = ModContent.ProjectileType<MeteorDuckProjectile>();
 		}
-		public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Duck);
-            recipe.AddIngredient(ItemID.MeteoriteBar, 5);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 50);
-            recipe.AddRecipe();
-        }
 	}
 }

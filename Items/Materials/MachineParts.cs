@@ -8,6 +8,8 @@ namespace DuckingAround.Items.Materials
 		public override void SetStaticDefaults()
 		{
             DisplayName.SetDefault("Machine Parts");
+			Tooltip.SetDefault("Used to craft certain machines and items.");
+			ItemID.Sets.ItemNoGravity[item.type] = true;
 		}
 		public override void SetDefaults()
 		{

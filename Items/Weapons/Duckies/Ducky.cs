@@ -34,13 +34,5 @@ namespace DuckingAround.Items.Weapons.Duckies
 			item.autoReuse = true;
 			item.shoot = ModContent.ProjectileType<DuckyProjectile>();
 		}
-		public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Duck);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 50);
-            recipe.AddRecipe();
-        }
 	}
 }

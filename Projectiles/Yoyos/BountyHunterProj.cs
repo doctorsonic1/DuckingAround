@@ -17,8 +17,8 @@ namespace DuckingAround.Projectiles.Yoyos
 		public override void SetStaticDefaults()
 		{
 			ProjectileID.Sets.YoyosLifeTimeMultiplier[projectile.type] = -1f;
-			ProjectileID.Sets.YoyosMaximumRange[projectile.type] = 8000f;
-			ProjectileID.Sets.YoyosTopSpeed[projectile.type] = 27f;
+			ProjectileID.Sets.YoyosMaximumRange[projectile.type] = 550f;
+			ProjectileID.Sets.YoyosTopSpeed[projectile.type] = 23f;
 		}
 		public override void SetDefaults()
 		{
@@ -72,7 +72,7 @@ namespace DuckingAround.Projectiles.Yoyos
 				}
 				this.yoyosSpawned = true;
 			}
-			if (Main.player[projectile.owner].HeldItem.type != ModContent.ItemType<Items.Weapons.Yoyos.MuckAround>())
+			if (Main.player[projectile.owner].HeldItem.type != ModContent.ItemType<Items.Weapons.Yoyos.BountyHunterYoYo>())
 			{
 				return;
 			}

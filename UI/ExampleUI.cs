@@ -1,9 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Linq;
-using Terraria;
-using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.UI;
@@ -11,7 +7,7 @@ using Terraria.UI;
 
 namespace DuckingAround.UI
 {
-	internal class ExampleUI : UIState
+    internal class ExampleUI : UIState
 	{
 		public DragableUIPanel CoinCounterPanel;
 		public UIHoverImageButton ExampleButton;

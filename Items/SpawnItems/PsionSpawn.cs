@@ -36,21 +36,5 @@ namespace DuckingAround.Items.SpawnItems
 				return false;
 			}
 		}
-		public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.LunarOre, 20);
-			recipe.AddIngredient(ItemID.SpectreBar, 20);
-			recipe.AddIngredient(ItemID.HallowedBar, 15);
-			recipe.AddIngredient(ItemID.ShroomiteBar, 10);
-			recipe.AddIngredient(ItemID.SoulofMight, 10);
-			recipe.AddIngredient(ItemID.SoulofFright, 10);
-			recipe.AddIngredient(ItemID.SoulofSight, 10);
-			recipe.AddIngredient(ItemID.SoulofLight, 15);
-			recipe.AddIngredient(ItemID.SoulofNight, 15);
-			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-		}
 	}
 }

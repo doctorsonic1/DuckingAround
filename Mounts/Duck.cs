@@ -1,9 +1,5 @@
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
-using System.Collections.Generic;
-using System.Linq;
 using System;
-using Terraria.DataStructures;
 using Terraria.ModLoader;
 using Terraria.ID;
 using Terraria;
@@ -11,7 +7,7 @@ using DuckingAround.Buffs;
 
 namespace DuckingAround.Mounts
 {
-	public class Duck : ModMountData
+    public class Duck : ModMountData
 	{
 		public override void SetDefaults()
 		{

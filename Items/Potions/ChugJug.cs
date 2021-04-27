@@ -30,16 +30,5 @@ namespace DuckingAround.Items.Potions
             player.AddBuff(mod.BuffType("ChugJug"), 6000);
             return true;
 		}
-		public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.BottledWater);
-			recipe.AddIngredient(ItemID.Deathweed);
-			recipe.AddIngredient(ItemID.IronPickaxe);
-			recipe.AddIngredient(ItemID.Wood);
-			recipe.AddTile(TileID.AlchemyTable);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-		}
 	}
 }

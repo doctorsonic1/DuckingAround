@@ -5,11 +5,11 @@ using Terraria.ModLoader;
 
 namespace DuckingAround.Items.Weapons.Duckies
 {
-	public class VastiumDucky : ModItem
+	public class PlatyrhynchiumDucky : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Vastium Ducky");
+            DisplayName.SetDefault("Platyrhynchium Ducky");
 			Tooltip.SetDefault("An extra-dimensional ducky for your tub.");
 		}
 		public override void SetDefaults()
@@ -34,14 +34,5 @@ namespace DuckingAround.Items.Weapons.Duckies
 			item.autoReuse = true;
 			item.shoot = ModContent.ProjectileType<VastiumDuckProjectile>();
 		}
-		public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Duck);
-            recipe.AddIngredient(mod.GetItem("PlatyrhynchiumBar"));
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 50);
-            recipe.AddRecipe();
-        }
 	}
 }

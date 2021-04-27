@@ -89,7 +89,7 @@ namespace DuckingAround.Projectiles.Duckies
 			{
 				int item =
 				Main.rand.NextBool(10)
-					? Item.NewItem(projectile.getRect(), ModContent.ItemType<VastiumDucky>())
+					? Item.NewItem(projectile.getRect(), ModContent.ItemType<PlatyrhynchiumDucky>())
 					: 0;
 				if (Main.netMode == NetmodeID.MultiplayerClient && item >= 0)
 				{

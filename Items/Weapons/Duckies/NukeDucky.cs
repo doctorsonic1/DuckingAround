@@ -1,12 +1,9 @@
-using DuckingAround.Projectiles.Duckies;
-using DuckingAround.Tiles;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace DuckingAround.Items.Weapons.Duckies
 {
-	public class NukeDucky : ModItem
+    public class NukeDucky : ModItem
 	{
 		public override void SetStaticDefaults()
 		{

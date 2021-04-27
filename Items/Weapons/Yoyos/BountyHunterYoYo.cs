@@ -1,8 +1,6 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using System;
 using DuckingAround.Projectiles.Yoyos;
 
 namespace DuckingAround.Items.Weapons.Yoyos
@@ -34,24 +32,13 @@ namespace DuckingAround.Items.Weapons.Yoyos
             item.noMelee = true;
             item.UseSound = SoundID.Item1;
             item.crit = 23;
-            item.shoot = mod.ProjectileType("BountyHunterProj");
+            item.shoot = ModContent.ProjectileType<BountyHunterProj>();
         }
+        /*
         public override void HoldItem(Player player)
         {
             player.AddBuff(mod.BuffType("BountyBuff"), 0);
         }
-        public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.ChlorophyteBar, 25);
-            recipe.AddIngredient(ItemID.SoulofMight, 5);
-            recipe.AddIngredient(ItemID.SoulofLight, 5);
-            recipe.AddIngredient(ItemID.Amarok);
-            recipe.AddIngredient(ItemID.Kraken);
-            recipe.AddIngredient(ItemID.Code1);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }
+        */
     }
 }

@@ -3,13 +3,14 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace DuckingAround.Items.Weapons
+namespace DuckingAround.Items.Weapons.Duckies
 {
-	public class Destructor : ModItem
+	public class DestroyerItem : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
-            DisplayName.SetDefault("Destructor");
+            DisplayName.SetDefault("DestroyerItem");
+			Tooltip.SetDefault("DestroyerItem");
 		}
 		public override void SetDefaults()
 		{
@@ -20,8 +21,9 @@ namespace DuckingAround.Items.Weapons
 			item.shootSpeed = 10f;
 			item.knockBack = 6.5f;
 			item.width = 32;
-			item.height = 28;
+			item.height = 32;
 			item.maxStack = 999;
+			item.UseSound = mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/DuckQuack");
 			item.scale = 1f;
 			item.rare = ItemRarityID.Pink;
 			item.value = Item.sellPrice(silver: 10);
@@ -30,15 +32,7 @@ namespace DuckingAround.Items.Weapons
 			item.noMelee = true;
 			item.noUseGraphic = true; 
 			item.autoReuse = true;
-			item.shoot = ModContent.ProjectileType<Projectiles.Destructor>();
+			item.shoot = ModContent.ProjectileType<Projectiles.Destroyer>();
 		}
-		public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Duck);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 50);
-            recipe.AddRecipe();
-        }
 	}
 }

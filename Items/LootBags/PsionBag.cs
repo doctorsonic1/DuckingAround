@@ -2,11 +2,10 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using DuckingAround.NPCs;
-using DuckingAround.Items;
 
 namespace DuckingAround.Items.LootBags
 {
-	public class PsionBag : ModItem
+    public class PsionBag : ModItem
 	{
 		public override void SetStaticDefaults()
 		{

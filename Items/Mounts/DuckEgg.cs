@@ -1,13 +1,11 @@
 using DuckingAround.Mounts;
 using DuckingAround.Tiles;
-using DuckingAround.Items;
 using Terraria.ID;
 using Terraria.ModLoader;
-using DuckingAround.Items.Materials;
 
 namespace DuckingAround.Items.Mounts
 {
-	public class DuckEgg : ModItem
+    public class DuckEgg : ModItem
 	{
 		public override void SetStaticDefaults()
         {

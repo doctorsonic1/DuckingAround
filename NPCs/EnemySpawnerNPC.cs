@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -7,7 +6,7 @@ using Microsoft.Xna.Framework;
 
 namespace DuckingAround.NPCs
 {
-	[AutoloadHead]
+    [AutoloadHead]
 	public class EnemySpawnerNPC : ModNPC
 	{
 		private int center
@@ -89,7 +88,7 @@ namespace DuckingAround.NPCs
         {
 			if (DuckingWorld.spawnerActive == 1)
 			{
-				return "I am currently spawning " + DuckingAround.EggNameMethod() + ".";
+				return "I am currently spawning " + DuckingWorld.EggNameMethod() + ".";
 			}
 			else
 			{
@@ -105,7 +104,7 @@ namespace DuckingAround.NPCs
 			}
 			else if (DuckingWorld.spawnerActive == 1 && Main.rand.Next(0, DuckingWorld.spawnRate) == 60 && enemyCount <= 50)
 			{
-				DuckingAround.HandleNPC(DuckingAround.EggSpawnMethod());
+				DuckingAround.HandleNPC(DuckingWorld.EggSpawnMethod());
 				enemyCount += 1;
 			}
 		}

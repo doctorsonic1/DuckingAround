@@ -12,8 +12,8 @@ namespace DuckingAround.Projectiles.Yoyos.Orbiting.QuackYo
         public override void SetDefaults()
         {
             projectile.extraUpdates = 0;
-            projectile.width = 56;
-            projectile.height = 54;
+            projectile.width = 16;
+            projectile.height = 16;
             projectile.friendly = true;
             projectile.melee = true;
             projectile.scale = 0.8f;
@@ -55,7 +55,9 @@ namespace DuckingAround.Projectiles.Yoyos.Orbiting.QuackYo
                 this.projectile.damage = projectile.damage;
                 this.projectile.knockBack = projectile.knockBack;
                 if (++Counter <= 60)
+                {
                     return;
+                }
                 Counter = 0;
             }
         }

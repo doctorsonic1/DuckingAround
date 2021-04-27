@@ -17,8 +17,8 @@ namespace DuckingAround.Projectiles.Yoyos
 		public override void SetStaticDefaults()
 		{
 			ProjectileID.Sets.YoyosLifeTimeMultiplier[projectile.type] = -1f;
-			ProjectileID.Sets.YoyosMaximumRange[projectile.type] = 8000f;
-			ProjectileID.Sets.YoyosTopSpeed[projectile.type] = 27f;
+			ProjectileID.Sets.YoyosMaximumRange[projectile.type] = 650f;
+			ProjectileID.Sets.YoyosTopSpeed[projectile.type] = 23f;
 		}
 		public override void SetDefaults()
 		{
@@ -53,30 +53,85 @@ namespace DuckingAround.Projectiles.Yoyos
 		{
 			if (!yoyosSpawned && projectile.owner == Main.myPlayer)
 			{
-				int num = 4;
+				int num = 12;
 				for (int index = 0; index < num; ++index)
 				{
 					float ai1 = (float)(360.0 / (double)num * (double)index * (Math.PI / 180.0));
+					//bounty
 					if (index == 0)
 					{
-						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<QuackYoOrbiting>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
+						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<Orbiting.QuackYo.Bounty.BountyCopy1>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
 					}
 					if (index == 1)
 					{
-						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<QuackYoOrbiting1>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
+						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<Orbiting.QuackYo.Bounty.BountyCopy2>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
+					}
+					if (index == 1)
+					{
+						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<QuackYoOrbiting>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
 					}
 					if (index == 2)
 					{
-						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<QuackYoOrbiting2>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
+						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<Orbiting.QuackYo.Bounty.BountyCopy3>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
 					}
+
+					//destiny
 					if (index == 3)
 					{
+						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<Orbiting.QuackYo.Destiny.DestinyCopy1>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
+					}
+					if (index == 4)
+					{
+						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<Orbiting.QuackYo.Destiny.DestinyCopy2>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
+					}
+					if (index == 4)
+					{
+						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<QuackYoOrbiting1>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
+					}
+					if (index == 5)
+					{
+						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<Orbiting.QuackYo.Destiny.DestinyCopy3>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
+					}
+
+					//freedom
+					if (index == 6)
+					{
+						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<Orbiting.QuackYo.Freedom.FreedomCopy1>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
+					}
+					if (index == 7)
+					{
+						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<Orbiting.QuackYo.Freedom.FreedomCopy2>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
+					}
+					if (index == 7)
+					{
+						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<QuackYoOrbiting2>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
+					}
+					if (index == 8)
+					{
+						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<Orbiting.QuackYo.Freedom.FreedomCopy3>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
+					}
+
+					//pegasus
+					if (index == 9)
+					{
+						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<Orbiting.QuackYo.Pegasus.PegasusCopy1>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
+					}
+					if (index == 10)
+					{
+						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<Orbiting.QuackYo.Pegasus.PegasusCopy2>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
+					}
+					if (index == 10)
+					{
 						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<QuackYoOrbiting3>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
+					}
+					if (index == 11)
+					{
+						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<Orbiting.QuackYo.Pegasus.PegasusCopy3>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
 					}
 				}
 				this.yoyosSpawned = true;
 			}
-			if (Main.player[projectile.owner].HeldItem.type != ModContent.ItemType<Items.Weapons.Yoyos.MuckAround>())
+			if (Main.player[projectile.owner].HeldItem.type != ModContent.ItemType<Items.Weapons.Yoyos.QuackYo>())
 			{
 				return;
 			}

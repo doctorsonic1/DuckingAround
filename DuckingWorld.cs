@@ -3,7 +3,6 @@ using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Microsoft.Xna.Framework;
 using System.IO;
-using System;
 using Terraria.ID;
 
 namespace DuckingAround
@@ -44,6 +43,8 @@ namespace DuckingAround
         public static int frameInt;
         public static int spawnRate;
 
+        public static string EnemyName;
+
         public static int[] zombieGroup = { -26, -27, -28, -29, -30, -31, -32, -33, -34, -35, -36, -37, -44, -45, 3, 187, 188, 189, 200, 132, 590 };
 
         public static int[] enemySpawnList =
@@ -52,11 +53,101 @@ namespace DuckingAround
             NPCID.FloatyGross, NPCID.GiantBat, NPCID.Hornet, NPCID.Nymph, NPCID.Pixie,
             NPCID.Skeleton, NPCID.Unicorn, NPCID.Werewolf, NPCID.Zombie
         };
+        public static int EggSpawnMethod()
+        {
+            int npcID = NPCID.Duck;
+            for (int k = 0; k < 255; k++)
+            {
+                Player player = Main.player[k];
+                if (!player.active)
+                {
+                    continue;
+                }
+                foreach (Item item in player.inventory)
+                {
+                    if (npcID == NPCID.Duck)
+                    {
+                        EnemyName = "nothing";
+                    }
+                    if (item.type == ModContent.ItemType<Items.EnemyEggs.ChaosEgg>())
+                    {
+                        npcID = NPCID.ChaosElemental;
+                        EnemyName = "Chaos Elementals";
+                    }
+                    else if (item.type == ModContent.ItemType<Items.EnemyEggs.ArmoredEgg>())
+                    {
+                        npcID = NPCID.ArmoredSkeleton;
+                        EnemyName = "Armored Skeletons";
+                    }
+                    else if (item.type == ModContent.ItemType<Items.EnemyEggs.CorruptorEgg>())
+                    {
+                        npcID = NPCID.Corruptor;
+                        EnemyName = "Corruptors";
+                    }
+                    else if (item.type == ModContent.ItemType<Items.EnemyEggs.CursedSkullEgg>())
+                    {
+                        npcID = NPCID.CursedSkull;
+                        EnemyName = "Cursed Skulls";
+                    }
+                    else if (item.type == ModContent.ItemType<Items.EnemyEggs.FloatyEgg>())
+                    {
+                        npcID = NPCID.FloatyGross;
+                        EnemyName = "Floaty Grosses";
+                    }
+                    else if (item.type == ModContent.ItemType<Items.EnemyEggs.GiantBatEgg>())
+                    {
+                        npcID = NPCID.GiantBat;
+                        EnemyName = "Giant Bats";
+                    }
+                    else if (item.type == ModContent.ItemType<Items.EnemyEggs.HornetEgg>())
+                    {
+                        npcID = NPCID.Hornet;
+                        EnemyName = "Hornets";
+                    }
+                    else if (item.type == ModContent.ItemType<Items.EnemyEggs.NymphEgg>())
+                    {
+                        npcID = NPCID.Nymph;
+                        EnemyName = "Nymphs";
+                    }
+                    else if (item.type == ModContent.ItemType<Items.EnemyEggs.PixieEgg>())
+                    {
+                        npcID = NPCID.Pixie;
+                        EnemyName = "Pixies";
+                    }
+                    else if (item.type == ModContent.ItemType<Items.EnemyEggs.SkeletonEgg>())
+                    {
+                        npcID = NPCID.Skeleton;
+                        EnemyName = "Skeletons";
+                    }
+                    else if (item.type == ModContent.ItemType<Items.EnemyEggs.UnicornEgg>())
+                    {
+                        npcID = NPCID.Unicorn;
+                        EnemyName = "Unicorns";
+                    }
+                    else if (item.type == ModContent.ItemType<Items.EnemyEggs.WerewolfEgg>())
+                    {
+                        npcID = NPCID.Werewolf;
+                        EnemyName = "Werewolves";
+                    }
+                    else if (item.type == ModContent.ItemType<Items.EnemyEggs.ZombieEgg>())
+                    {
+                        npcID = NPCID.Zombie;
+                        EnemyName = "Zombies";
+                    }
+                }
+            }
+            DuckingWorld.enemyID = npcID;
+            return npcID;
+        }
+        public static string EggNameMethod()
+        {
+            return EnemyName;
+        }
 
         public override void PostUpdate()
         {
-            DuckingAround.EggSpawnMethod();
-            DuckingAround.EggNameMethod();
+            EggSpawnMethod();
+            EggNameMethod();
             if (NPC.downedMechBoss1)
             { spawnRate = 600; }
 

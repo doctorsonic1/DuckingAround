@@ -1,14 +1,11 @@
-﻿using System;
-using DuckingAround;
-using Microsoft.Xna.Framework;
-using Terraria;
+﻿using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace DuckingAround.NPCs
 {
-	[AutoloadHead]
+    [AutoloadHead]
 	public class Mom : ModNPC
 	{
 		public override string Texture => "DuckingAround/NPCs/Mom";

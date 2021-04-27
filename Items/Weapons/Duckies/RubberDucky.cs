@@ -34,14 +34,5 @@ namespace DuckingAround.Items.Weapons.Duckies
 			item.autoReuse = true;
 			item.shoot = ModContent.ProjectileType<RubberDuckProjectile>();
 		}
-		public override void AddRecipes()
-        {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Duck);
-            recipe.AddIngredient(mod.GetItem("Rubber"));
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this, 50);
-            recipe.AddRecipe();
-        }
 	}
 }

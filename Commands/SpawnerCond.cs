@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using System;
 using Terraria;
 using Terraria.ModLoader;
@@ -6,7 +5,7 @@ using Terraria.ModLoader;
 
 namespace DuckingAround.Commands
 {
-	public class SpawnerCond : ModCommand
+    public class SpawnerCond : ModCommand
 	{
 		public override CommandType Type
 		=> CommandType.Chat;

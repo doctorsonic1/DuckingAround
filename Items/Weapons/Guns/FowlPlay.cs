@@ -1,6 +1,5 @@
 using Microsoft.Xna.Framework;
 using DuckingAround.Items.Weapons.Duckies;
-using DuckingAround.Items.Materials;
 using DuckingAround.Projectiles.Duckies;
 using Terraria;
 using Terraria.ID;
@@ -8,7 +7,7 @@ using Terraria.ModLoader;
 
 namespace DuckingAround.Items.Weapons.Guns
 {
-	public class FowlPlay : ModItem
+    public class FowlPlay : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -35,14 +34,6 @@ namespace DuckingAround.Items.Weapons.Guns
 			item.shootSpeed = 15f;
 			item.useAmmo = ModContent.ItemType<NukeDuckyItem>();
 			item.shoot = ModContent.ProjectileType<NukeDuckyProjectile>();
-		}
-		public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ModContent.ItemType<PlatyrhynchiumBar>(), 10);
-			recipe.AddTile(TileID.WorkBenches);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
 		}
 
 		public override void ModifyWeaponDamage(Player player, ref float add, ref float mult, ref float flat)

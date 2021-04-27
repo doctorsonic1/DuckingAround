@@ -1,14 +1,9 @@
 using Microsoft.Xna.Framework;
-using System;
 using Terraria;
-using Terraria.DataStructures;
-using Terraria.Enums;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
 using DuckingAround.Items.Placeable;
-using DuckingAround;
 
 namespace DuckingAround.Tiles
 {

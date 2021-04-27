@@ -1,10 +1,9 @@
-﻿using DuckingAround.Items;
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 
 namespace DuckingAround.Prefixes
 {
-	public class Destructive : ModPrefix
+    public class Destructive : ModPrefix
 	{
 		public byte destructive;
 		private readonly byte _power;

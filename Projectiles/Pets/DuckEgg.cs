@@ -1,14 +1,11 @@
-using DuckingAround.Items.Weapons.Duckies;
-using DuckingAround.Items.Weapons;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace DuckingAround.Projectiles.Pets
 {
-	public class DuckEgg : ModProjectile
+    public class DuckEgg : ModProjectile
 	{
 		public override void SetDefaults()
         {

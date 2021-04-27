@@ -2,6 +2,7 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
+using DuckingAround.Projectiles.Yoyos.Orbiting.Freedom;
 using System;
 
 namespace DuckingAround.Projectiles.Yoyos
@@ -16,7 +17,7 @@ namespace DuckingAround.Projectiles.Yoyos
 		public override void SetStaticDefaults()
         {
             ProjectileID.Sets.YoyosLifeTimeMultiplier[projectile.type] = -1f;
-            ProjectileID.Sets.YoyosMaximumRange[projectile.type] = 8000f;
+            ProjectileID.Sets.YoyosMaximumRange[projectile.type] = 550f;
             ProjectileID.Sets.YoyosTopSpeed[projectile.type] = 23f;
         }
         public override void SetDefaults()
@@ -58,20 +59,20 @@ namespace DuckingAround.Projectiles.Yoyos
 					float ai1 = (float)(360.0 / (double)num * (double)index * (Math.PI / 180.0));
 					if (index == 0)
 					{
-						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ProjectileID.Gradient, projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
+						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<FreedomOrbiting1>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
 					}
 					if (index == 1)
 					{
-						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ProjectileID.Yelets, projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
+						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<FreedomOrbiting2>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
 					}
 					if (index == 2)
 					{
-						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ProjectileID.WoodYoyo, projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
+						DuckingProjectile.NewProjectileDirectSafe(projectile.Center, Vector2.Zero, ModContent.ProjectileType<FreedomOrbiting3>(), projectile.damage, projectile.knockBack, projectile.owner, 5f, ai1).localAI[0] = (float)projectile.whoAmI;
 					}
 				}
 				this.yoyosSpawned = true;
 			}
-			if (Main.player[projectile.owner].HeldItem.type != ModContent.ItemType<Items.Weapons.Yoyos.MuckAround>())
+			if (Main.player[projectile.owner].HeldItem.type != ModContent.ItemType<Items.Weapons.Yoyos.FreedomYoYo>())
 			{
 				return;
 			}

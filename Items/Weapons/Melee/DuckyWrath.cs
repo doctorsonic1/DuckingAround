@@ -1,14 +1,11 @@
-using DuckingAround.Tiles;
-using DuckingAround.Projectiles.Duckies;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using DuckingAround.Items.Materials;
 
 namespace DuckingAround.Items.Weapons.Melee
 {
-	public class DuckyWrath : ModItem
+    public class DuckyWrath : ModItem
 	{
 		public override void SetStaticDefaults()
 		{

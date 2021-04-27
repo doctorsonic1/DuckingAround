@@ -1,7 +1,6 @@
 ﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
-using Terraria.Localization;
 
 
 namespace DuckingAround.Items.SpawnItems
@@ -39,28 +38,6 @@ namespace DuckingAround.Items.SpawnItems
 				DuckingAround.HandleNPC(ModContent.NPCType<NPCs.EnemySpawnerNPC>());
 				return true;
 			}
-		}
-		public override void AddRecipes()
-		{
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.AdamantiteBar, 30);
-			recipe.AddIngredient(ItemID.MythrilBar, 30);
-			recipe.AddIngredient(ItemID.CobaltBar, 30);
-			recipe.AddIngredient(ItemID.SoulofLight, 10);
-			recipe.AddIngredient(ItemID.SoulofNight, 10);
-			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
-
-			recipe = new ModRecipe(mod);
-			recipe.AddIngredient(ItemID.TitaniumBar, 30);
-			recipe.AddIngredient(ItemID.OrichalcumBar, 30);
-			recipe.AddIngredient(ItemID.PalladiumBar, 30);
-			recipe.AddIngredient(ItemID.SoulofLight, 10);
-			recipe.AddIngredient(ItemID.SoulofNight, 10);
-			recipe.AddTile(TileID.MythrilAnvil);
-			recipe.SetResult(this);
-			recipe.AddRecipe();
 		}
 	}
 }

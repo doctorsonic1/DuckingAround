@@ -1,12 +1,10 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using System;
 
 namespace DuckingAround.NPCs
 {
-	public class RobotFlier : ModNPC
+    public class RobotFlier : ModNPC
 	{
 		public override void SetStaticDefaults()
 		{

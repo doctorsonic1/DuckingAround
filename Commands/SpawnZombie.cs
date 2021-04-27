@@ -1,11 +1,10 @@
 using Microsoft.Xna.Framework;
 using Terraria.ModLoader;
 using Terraria;
-using Terraria.ID;
 
 namespace DuckingAround.Commands
 {
-	public class SpawnZombie : ModCommand
+    public class SpawnZombie : ModCommand
 	{
 		public override CommandType Type
 		=> CommandType.Chat;

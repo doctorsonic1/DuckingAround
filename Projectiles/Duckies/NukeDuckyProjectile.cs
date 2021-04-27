@@ -1,13 +1,11 @@
-using DuckingAround.Items.Weapons.Duckies;
 using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace DuckingAround.Projectiles.Duckies
 {
-	public class NukeDuckyProjectile : ModProjectile
+    public class NukeDuckyProjectile : ModProjectile
 	{
 		public override void SetDefaults() {
 			projectile.width = 32;

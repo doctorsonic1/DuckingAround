@@ -1,11 +1,10 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using System.Collections;
 
 namespace DuckingAround.Projectiles.Pets
 {
-	public class DuckPet : ModProjectile
+    public class DuckPet : ModProjectile
 	{
 		public override void SetStaticDefaults()
         {

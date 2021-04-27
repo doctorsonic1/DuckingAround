@@ -7,6 +7,7 @@ namespace DuckingAround.Items.Tools
 {
 	public class SapTap : ModItem
 	{
+		public int direction;
 		public override void SetStaticDefaults()
 		{
 			DisplayName.SetDefault("Sap tap");
@@ -26,13 +27,17 @@ namespace DuckingAround.Items.Tools
 		public override bool CanUseItem(Player player)
 		{
 			bool returnVal;
+			
 			int i = (int)Main.MouseWorld.X / 16;
 			int j = (int)Main.MouseWorld.Y / 16;
+			
 			int type;
+			int distance = 5;
+
 			if (WorldGen.InWorld(i, j))
 			{
 				type = Framing.GetTileSafely(i, j).type;
-				if (type == TileID.Trees && DuckingAround.PlayerFromTile(player, i, j))
+				if (type == TileID.Trees && DuckingAround.PlayerFromTile(player, i, j, distance))
 				{
 					returnVal = true;
 				}
@@ -51,18 +56,19 @@ namespace DuckingAround.Items.Tools
         {
 			if (Main.rand.Next(0, 10) == 5)
 			{
-				player.QuickSpawnItem(ModContent.ItemType<Items.Materials.Sap>());
-				Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/SapTapGlug"));
+				player.QuickSpawnItem(ModContent.ItemType<Materials.Sap>());
+				Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Item,  "Sounds/Item/SapTapGlug"));
 			}
 			else
 			{
 				Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/SapTapTap"));
 			}
+			direction = player.direction;
 			return true;
 		}
         public override Vector2? HoldoutOrigin()
         {
-			return new Vector2(-10, 0);
+			return new Vector2(8 * direction, 0);
         }
     }
 }

@@ -2,8 +2,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
-using System;
-using DuckingAround.Projectiles.Yoyos;
 
 namespace DuckingAround.Items.Weapons.Yoyos
 {
