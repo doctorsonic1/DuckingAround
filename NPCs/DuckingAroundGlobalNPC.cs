@@ -63,6 +63,54 @@ namespace DuckingAround.NPCs
         }
         public override void NPCLoot(NPC npc)
         {
+            if (npc.type == ModContent.NPCType<Bosses.EyeDestruction>())
+            {
+                if (Main.netMode != NetmodeID.MultiplayerClient)
+                {
+                    int centerX = (int)(npc.position.X + (float)(npc.width / 4)) / 16;
+                    int centerY = (int)(npc.position.Y + (float)(npc.height / 4)) / 16;
+                    int halfLength = npc.width / 2 / 16 + 1;
+                    for (int x = centerX - halfLength; x <= centerX + halfLength; x++)
+                    {
+                        for (int y = centerY - halfLength; y <= centerY + halfLength; y++)
+                        {
+                            if ((x == centerX - halfLength || x == centerX + halfLength || y == centerY - halfLength || y == centerY + halfLength) && !Main.tile[x, y].active())
+                            {
+                                Main.tile[x, y].type = TileID.AdamantiteBeam;
+                                Main.tile[x, y].active(true);
+                            }
+                            Main.tile[x, y].lava(false);
+                            Main.tile[x, y].liquid = 0;
+                            if (Main.netMode == NetmodeID.Server)
+                            {
+                                NetMessage.SendTileSquare(-1, x, y, 1);
+                            }
+                            else
+                            {
+                                WorldGen.SquareTileFrame(x, y, true);
+                            }
+                        }
+                    }
+                }
+                if (Main.expertMode)
+                {
+                    npc.DropBossBags();
+                }
+                else
+                {
+                    if (!NPC.downedMoonlord && Main.hardMode && Main.expertMode)
+                    {
+                        Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Placeable.PlatyrhynchiumOre>(), Main.rand.Next(72, 94));
+                    }
+                    else if (!NPC.downedMoonlord && Main.hardMode && !Main.expertMode)
+                    {
+                        Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Placeable.PlatyrhynchiumOre>(), Main.rand.Next(62, 75));
+                    }
+                    Item.NewItem(npc.getRect(), ModContent.ItemType<Items.Mounts.DuckEgg>());
+                }
+                WorldGenMethods.SpawnOre(ModContent.TileType<Tiles.PlatyrhynchiumOre>(), 0.000035, 0.45f, 0.65f);
+                DuckingNetcode.SyncWorld();
+            }
             //vastium slime ore drops
             if (NPC.downedMoonlord == true && npc.type == ModContent.NPCType<Enemies.PlatyrhynchiumSlime>())
             {
