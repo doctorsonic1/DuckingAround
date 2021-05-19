@@ -11,6 +11,10 @@ namespace DuckingAround
 		[Header("Chug Jug Sound")]
 		[Label("[i:300] Enables or disables Fortnite sound while Chug Jug is active.")]
 		[DefaultValue(false)] public bool ChugJugSound { get; set; }
+
+		[Header("Eye of Destruction Debug")]
+		[Label("[i:3292] Enables or disables chat debugging for the Eye of Destruction boss.")]
+		[DefaultValue(false)] public bool EyeDestrDebug { get; set; }
 		public static Vector2 EnemySpawnSpot { get; set; }
 		public static bool spawnerExists { get; set; }
 		public override bool AcceptClientChanges(ModConfig pendingConfig, int whoAmI, ref string message)

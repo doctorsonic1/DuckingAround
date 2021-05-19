@@ -10,14 +10,13 @@ namespace DuckingAround.NPCs.Bosses
     {
         private static Vector2 zeroVector = new Vector2(0f, 0f);
 
-        private static bool spinDelay = false;
         private static bool moveDelay = false;
         private static bool far;
         private static bool superfar;
 
-        private readonly int maxLife = 140000;
-        private static int timer;
         private static int delay = 1200;
+
+        private readonly int maxLife = 140000;
 
         public override void SetStaticDefaults()
         {
@@ -29,7 +28,7 @@ namespace DuckingAround.NPCs.Bosses
             npc.width = 72;
             npc.height = 72;
             npc.scale = 2f;
-            npc.damage = 70;
+            npc.damage = 180;
             npc.defense = 20;
             npc.lifeMax = maxLife;
             npc.HitSound = SoundID.NPCHit1;
@@ -55,43 +54,58 @@ namespace DuckingAround.NPCs.Bosses
         public override void ScaleExpertStats(int numPlayers, float bossLifeScale)
         {
             npc.lifeMax = maxLife + (numPlayers * (int)(0.05 * maxLife));
-            npc.damage = 95;
+            npc.damage += npc.damage / 2;
         }
         public override void AI()
         {
-            Main.NewText("npc.velocity = " + Convert.ToString(new Vector2((float)Math.Truncate(npc.velocity.X / 16), (float)Math.Truncate(npc.velocity.Y / 16))));
-            Main.NewText("npc.position = " + Convert.ToString(new Vector2((float)Math.Truncate(npc.position.X / 16), (float)Math.Truncate(npc.position.Y / 16))));
-            Main.NewText("npc.ai[0] = " + Convert.ToString(npc.ai[0]));
-            Main.NewText("npc.ai[1] = " + Convert.ToString(npc.ai[1]));
-            Main.NewText("npc.ai[2] = " + Convert.ToString(npc.ai[2]));
-            Main.NewText("npc.ai[3] = " + Convert.ToString(npc.ai[3]));
-            Main.NewText("delay = " + Convert.ToString(delay));
-            Main.NewText("moveDelay = " + Convert.ToString(moveDelay));
-            Main.NewText("superfar = " + Convert.ToString(superfar));
-            Main.NewText("far = " + Convert.ToString(far));
-
+            //npc.ai[0] is moving rotation
+            //npc.ai[1] is shooting projectile rotation
+            if (ModContent.GetInstance<ConfigClient>().EyeDestrDebug)
+            {
+                Main.NewText("npc.velocity = " + Convert.ToString(new Vector2((float)Math.Truncate(npc.velocity.X / 16), (float)Math.Truncate(npc.velocity.Y / 16))));
+                Main.NewText("npc.position = " + Convert.ToString(new Vector2((float)Math.Truncate(npc.position.X / 16), (float)Math.Truncate(npc.position.Y / 16))));
+                Main.NewText("npc.ai[0] = " + Convert.ToString(npc.ai[0]));
+                Main.NewText("npc.ai[1] = " + Convert.ToString(npc.ai[1]));
+                Main.NewText("npc.ai[2] = " + Convert.ToString(npc.ai[2]));
+                Main.NewText("npc.ai[3] = " + Convert.ToString(npc.ai[3]));
+                Main.NewText("delay = " + Convert.ToString(delay));
+                Main.NewText("moveDelay = " + Convert.ToString(moveDelay));
+                Main.NewText("superfar = " + Convert.ToString(superfar));
+                Main.NewText("far = " + Convert.ToString(far));
+            }
+            
             Player player = Main.player[npc.target];
 
-            far = Vector2.Distance(player.Center, npc.Center) > 280f;
-            superfar = Vector2.Distance(player.Center, npc.Center) > 700f;
+            far = Vector2.Distance(player.Center, npc.Center) > 450f;
+            superfar = Vector2.Distance(player.Center, npc.Center) > 825f;
 
             Vector2 velocity = Vector2.Normalize(player.Center - npc.Center);
 
-            delay--;
-            if (delay == 0)
+            if (npc.ai[0] >= 2f * (float)Math.PI)
             {
-                moveDelay = true;
+                npc.ai[0] = 0f;
             }
 
-            if (far && !moveDelay)
+            if (!moveDelay)
+            {
+                delay--;
+                if (delay == 0)
+                {
+                    moveDelay = true;
+                    delay = 1200;
+                }
+            }
+
+            if (far && !moveDelay && !superfar)
             {
                 npc.ai[0] += (float)Math.PI / 30;
                 npc.velocity = velocity.RotatedBy((double)Math.Sin(npc.ai[0])) * 6f;
                 npc.velocity.X *= 1.685f;
             }
+
             if (moveDelay)
             {
-                npc.velocity *= 0f;
+                npc.velocity = zeroVector;
                 npc.ai[1] += 2f;
                 if (npc.ai[1] % 4 == 0)
                 {
@@ -105,45 +119,35 @@ namespace DuckingAround.NPCs.Bosses
                     moveDelay = false;
                 }
             }
-            if (spinDelay)
+
+            if (!moveDelay && !far)
             {
-                if (npc.ai[3] <= 0f)
+                if (npc.ai[3] <= 15f)
                 {
-                    float speed = 12f;
-                    Vector2 move = npc.Center - player.Center;
-                    npc.velocity = Vector2.Normalize(move) * speed;
-                    npc.ai[3] = 30f;
-                }
-                npc.ai[3]--;
-            }
-            if (superfar && !spinDelay)
-            {
-                if (npc.ai[3] <= 0f)
-                {
-                    float speed = 35f;
+                    float speed = 20f;
                     Vector2 move = player.Center - npc.Center;
                     npc.velocity = Vector2.Normalize(move) * speed;
-                    npc.ai[3] = 20f;
-                }
-                npc.ai[3]--;
-            }
-            if (!far && !spinDelay)
-            {
-                if (npc.ai[3] <= 0f)
-                {
-                    float speed = 25f;
-                    Vector2 move = player.Center - npc.Center;
-                    npc.velocity = Vector2.Normalize(move) * speed;
-                    npc.ai[3] = 30f;
+                    if (npc.ai[3] == 0f)
+                    {
+                        npc.ai[3] = 40f;
+                    }
                 }
                 npc.ai[3]--;
             }
 
-            //npc.ai[0] is moving rotation
-            //npc.ai[1] is shooting projectile rotation
-            if (npc.ai[0] >= 2f * (float)Math.PI)
+            if (superfar && !moveDelay)
             {
-                npc.ai[0] = 0f;
+                if (npc.ai[3] <= 15f)
+                {
+                    float speed = 30f;
+                    Vector2 move = player.Center - npc.Center;
+                    npc.velocity = Vector2.Normalize(move) * speed;
+                    if (npc.ai[3] == 0f)
+                    {
+                        npc.ai[3] = 40f;
+                    }
+                }
+                npc.ai[3]--;
             }
         }
     }

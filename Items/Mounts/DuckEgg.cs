@@ -9,7 +9,7 @@ namespace DuckingAround.Items.Mounts
 	{
 		public override void SetStaticDefaults()
         {
-			Tooltip.SetDefault("This is a modded mount.");
+			Tooltip.SetDefault("It's a rideable duck.");
 		}
 
 		public override void SetDefaults()
@@ -24,15 +24,6 @@ namespace DuckingAround.Items.Mounts
 			item.UseSound = mod.GetLegacySoundSlot(SoundType.Custom, "Sounds/Mount/GetOnDuck");
 			item.noMelee = true;
 			item.mountType = ModContent.MountType<Duck>();
-		}
-
-		public override void AddRecipes()
-        {
-			ModRecipe recipe = new ModRecipe(mod);
-			recipe.AddIngredient(mod.ItemType("PlatyrhynchiumBar"), 10);
-			recipe.AddTile(ModContent.TileType<HephaestusForge>());
-			recipe.SetResult(this);
-			recipe.AddRecipe();
 		}
 	}
 }

@@ -120,11 +120,6 @@ namespace DuckingAround
 			RecipeGroup.RegisterGroup("DuckingAround:SilverBars", silver);
 		}
 	}
-	public static class Config
-    {
-		public static bool PlaySoundForChugJug = false;
-		public static bool SpawnerExists;
-	}
     class SpawnRateMultiplierGlobalNPC : GlobalNPC
     {
 		public override void EditSpawnRate(Player player, ref int spawnRate, ref int maxSpawns)
