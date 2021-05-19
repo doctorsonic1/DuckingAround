@@ -45,3 +45,38 @@ v0.5.4
 - Changed psion size
 	- 3x increase
 	- Item spawn box is too large, will be fixed
+    
+v0.6.0
+- Enemy spawner NPC now works on multiplayer
+	- Certain enemies have a chance to drop a spawn egg
+		- Having spawn egg in your inventory makes spawner spawn that specific enemy
+		- Having multiple eggs in your inventory will only spawn enemies of one type
+	- Using the spawn item with the NPC already active moves the NPC to the players location
+- Psion boss spawn recipe change
+- Psion boss spawns less ore, but spawns it every time it's killed
+
+v0.6.0
+- Added Robot Flier
+    - Spawns in space
+        - Drops machine parts
+- Added Acidic Slime
+	- Spawns in the Corruption (will be one for Crimson)
+		- Drops acid
+- Added Coagulator
+	- Crafting station for rubber (and maybe future items)
+	- Rubber is crafted with sap and acid
+		- Sap is acquired with a Sap Tap
+			- Sap Tap is used on trees, and only trees
+- Added Floaty Boy
+    - It's a hoverboard that moves really fast
+- Tweaked a bunch of crafting recipes
+- A bunch of items float now
+	- Coins, harpy feathers, broken bat wing, etc.
+	- Voodoo dolls float when dropped by voodoo demons
+		- All existing floating voodoo dolls drop when the player uses a voodoo doll
+		- Voodoo dolls are now dropped by left clicking (can still be thrown)
+
+v0.6.1.5
+- Fixed Robot Flier drops
+	- Now actually drops machine parts
+		- Machine parts float when they are dropped (so they don't fall from space)
