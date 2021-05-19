@@ -16,8 +16,6 @@ namespace DuckingAround.Tiles
 			Main.tileNoAttach[Type] = true;
 			Main.tileTable[Type] = true;
 			Main.tileLavaDeath[Type] = false;
-			TileObjectData.newTile.Height = 3;
-			TileObjectData.newTile.Width = 4;
 			TileObjectData.newTile.CopyFrom(TileObjectData.Style3x2);
 			TileObjectData.newTile.Origin = new Point16(1, 0);
 			TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16 };
@@ -33,7 +31,7 @@ namespace DuckingAround.Tiles
 		}
         public override void AnimateTile(ref int frame, ref int frameCounter)
         {
-			if (++frameCounter >= 6)
+			if (++frameCounter >= 3)
 			{
 				frameCounter = 0;
 				frame = ++frame % 11;

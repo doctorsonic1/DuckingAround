@@ -2,9 +2,9 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace DuckingAround.NPCs
+namespace DuckingAround.NPCs.Enemies
 {
-	public class VastiumSlime : ModNPC
+	public class PlatyrhynchiumSlime : ModNPC
 	{
 		public override void SetStaticDefaults()
 		{

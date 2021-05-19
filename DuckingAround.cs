@@ -5,21 +5,15 @@ using Terraria.ModLoader;
 using System;
 using System.IO;
 using ReLogic.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace DuckingAround
 {
-    public class DuckingAround : Mod
+	public class DuckingAround : Mod
 	{
 		public static DuckingAround instance;
 		public static DynamicSpriteFont exampleFont;
 		internal UserInterface MomUserInterface;
-
-		public static int[] enemySpawnList =
-		{ 
-			NPCID.ChaosElemental, NPCID.ArmoredSkeleton, NPCID.Corruptor, NPCID.CursedSkull,
-			NPCID.FloatyGross, NPCID.GiantBat, NPCID.Hornet, NPCID.Nymph, NPCID.Pixie,
-			NPCID.Skeleton,NPCID.Unicorn, NPCID.Werewolf, NPCID.Zombie
-		};
 		public static int Negativity(int someNum, int negativeChance)
 		{
 			if (Main.rand.Next(0, negativeChance) == 1)
@@ -31,8 +25,8 @@ namespace DuckingAround
 				return someNum;
 			}
 		}
-        public override void Load()
-		{			
+		public override void Load()
+		{
 			DuckingAround.instance = this;
 		}
 		public static bool RandomBool(int EqualVal, int Upperbound)
@@ -65,13 +59,13 @@ namespace DuckingAround
 		{
             Player player = syncData ? Main.player[whoAmI] : Main.LocalPlayer;
 			int index;
-			if (type == ModContent.NPCType<NPCs.EnemySpawnerNPC>())
+			if (type == ModContent.NPCType<NPCs.Towns.EnemySpawnerNPC.EnemySpawnerNPC>())
 			{
 				index = NPC.NewNPC((int)player.Bottom.X, (int)player.position.Y - 64, type);
 			}
 			else
 			{
-				index = NPC.NewNPC((int)Main.npc[NPC.FindFirstNPC(ModContent.NPCType<NPCs.EnemySpawnerNPC>())].position.X + DuckingAround.Negativity(800, 3), (int)player.Bottom.Y - 96, type);
+				index = NPC.NewNPC((int)Main.npc[NPC.FindFirstNPC(ModContent.NPCType<NPCs.Towns.EnemySpawnerNPC.EnemySpawnerNPC>())].position.X + DuckingAround.Negativity(800, 3), (int)player.Bottom.Y - 96, type);
 			}
 			if (syncID >= 0)
 			{

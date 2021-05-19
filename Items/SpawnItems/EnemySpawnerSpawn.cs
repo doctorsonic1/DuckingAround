@@ -27,15 +27,15 @@ namespace DuckingAround.Items.SpawnItems
 
 		public override bool UseItem(Player player)
 		{
-			if (NPC.AnyNPCs(ModContent.NPCType<NPCs.EnemySpawnerNPC>()))
+			if (NPC.AnyNPCs(ModContent.NPCType<NPCs.Towns.EnemySpawnerNPC.EnemySpawnerNPC>()))
 			{
-				Main.npc[NPC.FindFirstNPC(ModContent.NPCType<NPCs.EnemySpawnerNPC>())].position.X = player.position.X;
-				Main.npc[NPC.FindFirstNPC(ModContent.NPCType<NPCs.EnemySpawnerNPC>())].position.Y = player.position.Y - 64;
+				Main.npc[NPC.FindFirstNPC(ModContent.NPCType<NPCs.Towns.EnemySpawnerNPC.EnemySpawnerNPC>())].position.X = player.position.X;
+				Main.npc[NPC.FindFirstNPC(ModContent.NPCType<NPCs.Towns.EnemySpawnerNPC.EnemySpawnerNPC>())].position.Y = player.position.Y - 64;
 				return false;
 			}
             else
 			{
-				DuckingAround.HandleNPC(ModContent.NPCType<NPCs.EnemySpawnerNPC>());
+				DuckingAround.HandleNPC(ModContent.NPCType<NPCs.Towns.EnemySpawnerNPC.EnemySpawnerNPC>());
 				return true;
 			}
 		}

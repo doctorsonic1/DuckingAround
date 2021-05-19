@@ -36,7 +36,7 @@ namespace DuckingAround.Items.Weapons.Melee
 		{
 			if (Main.rand.NextBool(3)) 
 			{
-				Dust dust = Dust.NewDustDirect(player.position, hitbox.X, hitbox.Y, 229);
+				Dust dust = Dust.NewDustDirect(player.position, hitbox.X, hitbox.Y, DustID.Vortex);
 			}
 		}
 

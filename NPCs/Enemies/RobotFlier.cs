@@ -2,7 +2,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace DuckingAround.NPCs
+namespace DuckingAround.NPCs.Enemies
 {
     public class RobotFlier : ModNPC
 	{

@@ -25,15 +25,11 @@ namespace DuckingAround.Projectiles.Duckies
 			projectile.penetrate--;
 			if (projectile.penetrate <= 0)
 			{
-				Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 16);
-				Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 16);
-				Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 16);
-				Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 16);
-				Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 16);
-				Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 16);
-				Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 16);
-				Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 16);
-				Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 16);
+				int Cloud = 16;
+				for (int k = 0; k < 10; k++)
+				{
+					Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, Cloud);
+				}
 				projectile.Kill();
 			}
 			else {
@@ -132,7 +128,8 @@ namespace DuckingAround.Projectiles.Duckies
 			int dustAmount = bufferFull ? BufferSize : bufferTail;
 			for (int i = 0; i < dustAmount; i++)
 			{
-				Dust dust =  Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 158);
+				int OrangeTorch = 158;
+				Dust dust =  Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, OrangeTorch);
 			}
 		}
 	}

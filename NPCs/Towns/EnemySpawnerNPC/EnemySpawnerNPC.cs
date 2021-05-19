@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 
-namespace DuckingAround.NPCs
+namespace DuckingAround.NPCs.Towns.EnemySpawnerNPC
 {
     [AutoloadHead]
 	public class EnemySpawnerNPC : ModNPC
@@ -22,9 +22,9 @@ namespace DuckingAround.NPCs
 		public static int enemyCount = 0;
 		public static int spawnerActive;
 		public static int playerClosest;
-		public override string Texture => "DuckingAround/NPCs/EnemySpawnerNPC";
+		public override string Texture => "DuckingAround/NPCs/Towns/EnemySpawnerNPC/EnemySpawnerNPC";
 
-		public override string[] AltTextures => new[] { "DuckingAround/NPCs/EnemySpawnerNPC_Alt_1" };
+		public override string[] AltTextures => new[] { "DuckingAround/NPCs/Towns/EnemySpawnerNPC/EnemySpawnerNPC_Alt_1" };
 
 		public override bool Autoload(ref string name)
 		{

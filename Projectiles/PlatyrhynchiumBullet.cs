@@ -127,7 +127,7 @@ namespace DuckingAround.Projectiles
 			int dustAmount = bufferFull ? BufferSize : bufferTail;
 			for (int i = 0; i < dustAmount; i++)
 			{
-				Dust dust =  Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 228);
+				Dust dust =  Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, DustID.GoldFlame);
 			}
 		}
 	}

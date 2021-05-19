@@ -4,7 +4,7 @@ using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using System;
 
-namespace DuckingAround.NPCs
+namespace DuckingAround.NPCs.Enemies
 {
 	public class AcidicSlime : ModNPC
 	{

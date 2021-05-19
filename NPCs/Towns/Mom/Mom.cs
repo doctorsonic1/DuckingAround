@@ -3,14 +3,14 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace DuckingAround.NPCs
+namespace DuckingAround.NPCs.Towns.Mom
 {
     [AutoloadHead]
 	public class Mom : ModNPC
 	{
-		public override string Texture => "DuckingAround/NPCs/Mom";
+		public override string Texture => "DuckingAround/NPCs/Towns/Mom/Mom";
 
-		public override string[] AltTextures => new[] { "DuckingAround/NPCs/Mom_Alt_1" };
+		public override string[] AltTextures => new[] { "DuckingAround/NPCs/Towns/Mom/Mom_Alt_1" };
 
 		public override bool Autoload(ref string name)
 		{
@@ -51,7 +51,8 @@ namespace DuckingAround.NPCs
 			int num = npc.life > 0 ? 1 : 5;
 			for (int k = 0; k < num; k++)
 			{
-				Dust.NewDust(npc.position, npc.width, npc.height, 141);
+				int Confetti_Pink = 141;
+				Dust.NewDust(npc.position, npc.width, npc.height, Confetti_Pink);
 			}
 		}
 

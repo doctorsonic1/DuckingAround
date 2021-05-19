@@ -11,7 +11,6 @@ using Terraria.UI.Chat;
 
 namespace DuckingAround.UI
 {
-	// This class represents the UIState for our ExamplePerson Awesomeify chat function. It is similar to the Goblin Tinkerer's Reforge function, except it only gives Awesome and ReallyAwesome prefixes. 
 	internal class MomUserInterface : UIState
 	{
 		private VanillaItemSlotWrapper _vanillaItemSlot;
@@ -24,36 +23,21 @@ namespace DuckingAround.UI
 				Top = { Pixels = 270 },
 				ValidItemFunc = item => item.IsAir || !item.IsAir && item.Prefix(-3)
 			};
-			// Here we limit the items that can be placed in the slot. We are fine with placing an empty item in or a non-empty item that can be prefixed. Calling Prefix(-3) is the way to know if the item in question can take a prefix or not.
 			Append(_vanillaItemSlot);
 		}
-
-		// OnDeactivate is called when the UserInterface switches to a different state. In this mod, we switch between no state (null) and this state (ExamplePersonUI).
-		// Using OnDeactivate is useful for clearing out Item slots and returning them to the player, as we do here.
 		public override void OnDeactivate()
 		{
 			if (!_vanillaItemSlot.Item.IsAir)
 			{
-				// QuickSpawnClonedItem will preserve mod data of the item. QuickSpawnItem will just spawn a fresh version of the item, losing the prefix.
 				Main.LocalPlayer.QuickSpawnClonedItem(_vanillaItemSlot.Item, _vanillaItemSlot.Item.stack);
-				// Now that we've spawned the item back onto the player, we reset the item by turning it into air.
 				_vanillaItemSlot.Item.TurnToAir();
 			}
-			// Note that in ExamplePerson we call .SetState(new UI.ExamplePersonUI());, thereby creating a new instance of this UIState each time. 
-			// You could go with a different design, keeping around the same UIState instance if you wanted. This would preserve the UIState between opening and closing. Up to you.
 		}
-
-		// Update is called on a UIState while it is the active state of the UserInterface.
-		// We use Update to handle automatically closing our UI when the player is no longer talking to our Example Person NPC.
 		public override void Update(GameTime gameTime)
 		{
-			// Don't delete this or the UIElements attached to this UIState will cease to function.
 			base.Update(gameTime);
-
-			// talkNPC is the index of the NPC the player is currently talking to. By checking talkNPC, we can tell when the player switches to another NPC or closes the NPC chat dialog.
-			if (Main.LocalPlayer.talkNPC == -1 || Main.npc[Main.LocalPlayer.talkNPC].type != ModContent.NPCType<Mom>())
+			if (Main.LocalPlayer.talkNPC == -1 || Main.npc[Main.LocalPlayer.talkNPC].type != ModContent.NPCType<NPCs.Towns.Mom.Mom>())
 			{
-				// When that happens, we can set the state of our UserInterface to null, thereby closing this UIState. This will trigger OnDeactivate above.
 				ModContent.GetInstance<DuckingAround>().MomUserInterface.SetState(null);
 			}
 		}
@@ -62,15 +46,7 @@ namespace DuckingAround.UI
 		protected override void DrawSelf(SpriteBatch spriteBatch)
 		{
 			base.DrawSelf(spriteBatch);
-
-			// This will hide the crafting menu similar to the reforge menu. For best results this UI is placed before "Vanilla: Inventory" to prevent 1 frame of the craft menu showing.
 			Main.HidePlayerCraftingMenu = true;
-
-			// Here we have a lot of code. This code is mainly adapted from the vanilla code for the reforge option.
-			// This code draws "Place an item here" when no item is in the slot and draws the reforge cost and a reforge button when an item is in the slot.
-			// This code could possibly be better as different UIElements that are added and removed, but that's not the main point of this example.
-			// If you are making a UI, add UIElements in OnInitialize that act on your ItemSlot or other inputs rather than the non-UIElement approach you see below.
-
 			const int slotX = 50;
 			const int slotY = 270;
 			if (!_vanillaItemSlot.Item.IsAir)
@@ -121,7 +97,6 @@ namespace DuckingAround.UI
 						Item reforgeItem = new Item();
 						reforgeItem.netDefaults(_vanillaItemSlot.Item.netID);
 						reforgeItem = reforgeItem.CloneWithModdedDataFrom(_vanillaItemSlot.Item);
-						// This is the main effect of this slot. Giving the Awesome prefix 90% of the time and the ReallyAwesome prefix the other 10% of the time. All for a constant 1 gold. Useless, but informative.
 						if (Main.rand.NextBool(10))
 						{
 							reforgeItem.Prefix(ModContent.GetInstance<DuckingAround>().PrefixType("ReallyAwesome"));

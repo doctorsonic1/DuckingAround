@@ -135,7 +135,8 @@ namespace DuckingAround.Projectiles.Duckies
 			int dustAmount = bufferFull ? BufferSize : bufferTail;
 			for (int i = 0; i < dustAmount; i++)
 			{
-				Dust dust =  Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 158);
+				int OrangeTorch = 158;
+				Dust dust =  Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, OrangeTorch);
 			}
 		}
 	}

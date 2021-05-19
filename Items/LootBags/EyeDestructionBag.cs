@@ -5,7 +5,7 @@ using DuckingAround.NPCs;
 
 namespace DuckingAround.Items.LootBags
 {
-    public class PsionBag : ModItem
+    public class EyeDestructionBag : ModItem
 	{
 		public override void SetStaticDefaults()
 		{
@@ -37,6 +37,6 @@ namespace DuckingAround.Items.LootBags
 				player.QuickSpawnItem(ModContent.ItemType<Placeable.PlatyrhynchiumOre>(), Main.rand.Next(87,108));
 			}
 		}
-		public override int BossBagNPC => ModContent.NPCType<EyeDestruction>();
+		public override int BossBagNPC => ModContent.NPCType<NPCs.Bosses.EyeDestruction>();
 	}
 }

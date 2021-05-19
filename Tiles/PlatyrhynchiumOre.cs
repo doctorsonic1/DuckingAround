@@ -22,7 +22,7 @@ namespace DuckingAround.Tiles
 			name.SetDefault("Vastium Ore");
 			AddMapEntry(new Color(255, 255, 0), name);
 
-			dustType = 84;
+			dustType = DustID.Platinum;
 			drop = ModContent.ItemType<Items.Placeable.PlatyrhynchiumOre>();
 			soundType = SoundID.Tink;
 			soundStyle = 1;

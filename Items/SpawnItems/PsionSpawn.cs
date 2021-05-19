@@ -1,7 +1,7 @@
 ﻿using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-
+using Terraria.ModLoader;
+using DuckingAround.NPCs.Bosses;
 
 namespace DuckingAround.Items.SpawnItems
 {
@@ -26,9 +26,9 @@ namespace DuckingAround.Items.SpawnItems
 
 		public override bool UseItem(Player player)
 		{
-			if (!Main.dayTime)
+			if (!Main.dayTime && !NPC.AnyNPCs(ModContent.NPCType<EyeDestruction>()))
 			{
-				NPC.SpawnOnPlayer(player.whoAmI, mod.NPCType("Psion"));
+				NPC.SpawnOnPlayer(player.whoAmI, ModContent.NPCType<NPCs.Bosses.EyeDestruction>());
 				return true;
 			}
 			else

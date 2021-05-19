@@ -31,9 +31,10 @@ namespace DuckingAround.Projectiles.Duckies
 			}
 			else
 			{
+				int Smoke = 31;
 				Collision.HitTiles(projectile.position + projectile.velocity, projectile.velocity, projectile.width, projectile.height);
 				Vector2 position = projectile.Center;
-				Dust.NewDust(position, 22, 22, DustID.Smoke, 0.0f, 0.0f, 120, new Color(), 1f);
+				Dust.NewDust(position, 22, 22, Smoke, 0.0f, 0.0f, 120, new Color(), 1f);
 				Main.PlaySound(SoundID.Item14, projectile.position);
 				Main.PlaySound(mod.GetLegacySoundSlot(SoundType.Item, "Sounds/Item/DuckDeath"), projectile.position);
 				if (projectile.velocity.X != oldVelocity.X)
@@ -125,7 +126,8 @@ namespace DuckingAround.Projectiles.Duckies
 			int dustAmount = bufferFull ? BufferSize : bufferTail;
 			for (int i = 0; i < dustAmount; i++)
 			{
-				Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 158);
+				int OrangeTorch = 158;
+				Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, OrangeTorch);
 			}
 		}
 	}

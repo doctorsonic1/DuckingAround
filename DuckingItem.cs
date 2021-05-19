@@ -14,38 +14,11 @@ using DuckingAround.Items.Weapons.Duckies;
 namespace DuckingAround
 {
     public class DuckingItem : GlobalItem
-    {
-        public override void Update(Item item, ref float gravity, ref float maxFallSpeed)
+	{
+		public override void Update(Item item, ref float gravity, ref float maxFallSpeed)
         {
-            if (item.type == ItemID.PlatinumCoin)
-            {
-                ItemID.Sets.ItemNoGravity[item.type] = true;
-            }
-            if (item.type == ItemID.GoldCoin)
-            {
-                ItemID.Sets.ItemNoGravity[item.type] = true;
-            }
-            if (item.type == ItemID.SilverCoin)
-            {
-                ItemID.Sets.ItemNoGravity[item.type] = true;
-            }
-            if (item.type == ItemID.CopperCoin)
-            {
-                ItemID.Sets.ItemNoGravity[item.type] = true;
-            }
-            if (item.type == ItemID.Feather)
-            {
-                ItemID.Sets.ItemNoGravity[item.type] = true;
-            }
-            if (item.type == ItemID.GiantHarpyFeather)
-            {
-                ItemID.Sets.ItemNoGravity[item.type] = true;
-            }
-            if (item.type == ItemID.WyvernBanner)
-            {
-                ItemID.Sets.ItemNoGravity[item.type] = true;
-            }
-            if (item.type == ItemID.HarpyBanner)
+            if (item.type == ItemID.PlatinumCoin || item.type == ItemID.GoldCoin || item.type == ItemID.SilverCoin || item.type == ItemID.CopperCoin
+				|| item.type == ItemID.Feather || item.type == ItemID.GiantHarpyFeather || item.type == ItemID.WyvernBanner || item.type == ItemID.HarpyBanner)
             {
                 ItemID.Sets.ItemNoGravity[item.type] = true;
             }
@@ -57,7 +30,7 @@ namespace DuckingAround
                 item.consumable = true;
                 item.useAnimation = 15;
                 item.useTime = 15;
-                item.useStyle = ItemUseStyleID.HoldingUp;
+                item.useStyle = ItemUseStyleID.SwingThrow;
             }
         }
         public override bool UseItem(Item item, Player player)

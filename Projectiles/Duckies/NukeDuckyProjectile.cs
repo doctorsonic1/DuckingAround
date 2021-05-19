@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace DuckingAround.Projectiles.Duckies
 {
@@ -25,9 +26,11 @@ namespace DuckingAround.Projectiles.Duckies
 			projectile.penetrate--;
 			if (projectile.penetrate <= 0)
 			{
-				Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 158);
-				Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 158);
-				Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 158);
+				int OrangeTorch = 158;
+				for (int k = 0; k < 5; k++)
+				{
+					Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, OrangeTorch);
+				}
 				Collision.HitTiles(projectile.position + projectile.velocity, projectile.velocity, projectile.width, projectile.height);
 			}
 			for (int i = 0; i < 10; i++)
@@ -88,7 +91,8 @@ namespace DuckingAround.Projectiles.Duckies
 			int dustAmount = bufferFull ? BufferSize : bufferTail;
 			for (int i = 0; i < dustAmount; i++)
 			{
-				Dust dust =  Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, 158);
+				int OrangeTorch = 158;
+				Dust dust =  Dust.NewDustDirect(projectile.position, projectile.width, projectile.height, OrangeTorch);
 			}
 		}
 		public float movementFactor
